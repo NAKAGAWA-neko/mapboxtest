@@ -1,4 +1,3 @@
-import * as d3 from "d3";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 import GeoJSON from "geojson";
