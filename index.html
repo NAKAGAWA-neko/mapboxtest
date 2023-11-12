@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/alienface.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mapboxチャレンジ</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/test1.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div class="map-overlay top">
+      <div class="map-overlay-inner">
+        <h2>この1ヶ月で発生した地震</h2>
+        <label id="magnitude"></label>
+        <input id="slider" type="range" min="0" max="12" step="1" value="0" />
+      </div>
+      <!-- <div class="map-overlay-inner">
+        <div id="legend" class="legend">
+          <div class="bar"></div>
+          <div>マグニチュード (m)</div>
+        </div>
+      </div> -->
+    </div>
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- <script type="module" src="/src/test1.ts"></script> -->
+    <script type="module" src="/src/main2test.ts"></script>
+  </body>
+</html>
