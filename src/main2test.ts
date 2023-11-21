@@ -53,7 +53,9 @@ const magnitudeList = [2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8];
 // 選択されたマグニチュードを表示する関数
 const filterBy = (mag = 0) => {
   // マグニチュードの値を表示するDOM要素を更新
-  (document.getElementById("magnitude") as HTMLElement).textContent = String(magnitudeList[mag]);
+  (document.getElementById("magnitude") as HTMLElement).textContent = String(
+    magnitudeList[mag]
+  );
 };
 
 // 初期マグニチュードを表示
@@ -63,7 +65,10 @@ filterBy();
 const filterEarthquakesByMagnitude = (magIndex: number) => {
   // 選択されたマグニチュードに基づいてフィルタリングの範囲を設定
   const minMag = magnitudeList[magIndex];
-  const maxMag = magIndex < magnitudeList.length - 1 ? magnitudeList[magIndex + 1] : Infinity;
+  const maxMag =
+    magIndex < magnitudeList.length - 1
+      ? magnitudeList[magIndex + 1]
+      : Infinity;
 
   // マップ上の地震データをフィルタリング
   map.setFilter("earthquakes", [
@@ -94,7 +99,12 @@ const extractCoordinates = (dataList: QuakeList) => {
     // マグニチュード（mag）を数値に変換
     const mag = parseFloat(data.mag);
 
-    return { ...data, latitude: parseFloat(latitude), longitude: parseFloat(longitude), mag };
+    return {
+      ...data,
+      latitude: parseFloat(latitude),
+      longitude: parseFloat(longitude),
+      mag,
+    };
   });
 };
 
@@ -108,7 +118,7 @@ const convertToGeoJSONAndPrint = async () => {
   const formattedData = extractCoordinates(quakeList);
 
   // GeoJSONに変換
-  const geojsonData = GeoJSON.parse(formattedData, {
+  const geojsonData = (GeoJSON as any).parse(formattedData, {
     Point: ["latitude", "longitude"],
   });
 
