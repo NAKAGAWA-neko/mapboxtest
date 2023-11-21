@@ -36,11 +36,12 @@ getQuakeList();
 const magnitudeList = [2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8];
 
 const filterBy = (mag = 0) => {
-  (document.getElementById("magnitude") as any).textContent = magnitudeList[mag];
+  (document.getElementById("magnitude") as any).textContent =
+    magnitudeList[mag];
 };
 filterBy();
 
 document.getElementById("slider")?.addEventListener("input", (e) => {
-  const mag = parseInt(e.target?.value, 10);
+  const mag = parseInt((e.target as HTMLInputElement).value, 10);
   filterBy(mag);
 });
