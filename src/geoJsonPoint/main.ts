@@ -13,10 +13,13 @@ const map = new mapboxgl.Map({
 });
 
 map.on("load", () => {
-  map.loadImage("https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png", (error, image) => {
-    if (error) throw error;
-    map.addImage("custom-marker", image as any);
-    map.addSource("points", geoJsonPoints as mapboxgl.AnySourceData);
-    map.addLayer(symbols as mapboxgl.AnyLayer);
-  });
+  map.loadImage(
+    "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
+    (error, image) => {
+      if (error) throw error;
+      map.addImage("custom-marker", image as any);
+      map.addSource("points", geoJsonPoints as mapboxgl.AnySourceData);
+      map.addLayer(symbols as mapboxgl.AnyLayer);
+    }
+  );
 });
