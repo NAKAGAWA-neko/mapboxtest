@@ -108,7 +108,7 @@ const convertToGeoJSONAndPrint = async () => {
   const formattedData = extractCoordinates(quakeList);
 
   // GeoJSONに変換
-  const geojsonData = GeoJSON.parse(formattedData, {
+  const geojsonData = (GeoJSON as any).parse(formattedData, {
     Point: ["latitude", "longitude"],
   });
 
